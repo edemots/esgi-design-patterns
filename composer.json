@@ -1,0 +1,18 @@
+{
+    "name": "edemots/design-patterns",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "DesignPatterns\\": "src/",
+            "DesignPatterns\\IW1\\": "src/3iw1/app/",
+            "DesignPatterns\\IW1EBook\\": "src/3iw1/ebook/",
+            "DesignPatterns\\IW2\\": "src/3iw2/app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "edemots"
+        }
+    ],
+    "require": {}
+}

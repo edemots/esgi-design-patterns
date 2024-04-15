@@ -1,0 +1,10 @@
+{
+    "markdown.marp.themes": [
+        "https://cdn.tailwindcss.com/3.0.0",
+        "./slides/themes/brutalism.scss"
+    ],
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+        "editor.formatOnSave": true,
+    }
+}

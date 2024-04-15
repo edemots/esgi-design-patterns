@@ -1,0 +1,86 @@
+/*!
+ * Marp brutalism theme.
+ *
+ * @theme brutalism
+ * @author Eliot Demots
+ *
+ * @auto-scaling true
+ * @size 16:9 1280px 720px
+ * @size 4:3 960px 720px
+ */
+
+ @import 'default';
+
+ @font-face {
+    font-family: "SharpGrotesk";
+    src: url('./themes/fonts/SharpGrotesk-Bold25.otf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+ }
+ @font-face {
+    font-family: "SharpGrotesk";
+    src: url('./themes/fonts/SharpGrotesk-SemiBold25.otf');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+ }
+ @font-face {
+    font-family: "SharpGrotesk";
+    src: url('./themes/fonts/SharpGrotesk-Book25.otf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+ }
+
+ :root {
+    font-family: "SharpGrotesk";
+ }
+
+section {
+    width: 1280px;
+    height: 720px;
+    background-color: white;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-wrap: nowrap;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: lowercase;
+    color: #000;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: lowercase;
+    color: #000;
+}
+
+h3 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-style: normal;
+    color: #000;
+}
+
+blockquote {
+    margin-top: 0.25rem;
+}
+
+.columns {
+    display: grid;
+    grid-auto-flow: column;
+}
