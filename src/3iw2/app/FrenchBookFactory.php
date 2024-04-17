@@ -9,8 +9,9 @@ class FrenchBookFactory extends BookFactory
         string $authorName,
         string $isbn,
         string $publishedDate,
+        float $price,
     ): BookInterface {
-        return $this->createBook("fiction", "fr_FR", $title, $authorName, $isbn, $publishedDate);
+        return $this->createBook("fiction", "fr_FR", $title, $authorName, $isbn, $publishedDate, $price);
     }
 
     public function createHistoryBook(
@@ -18,7 +19,8 @@ class FrenchBookFactory extends BookFactory
         string $authorName,
         string $isbn,
         string $publishedDate,
+        float $price,
     ): BookInterface {
-        return $this->createBook("history", "fr_FR", $title, $authorName, $isbn, $publishedDate);
+        return $this->createBook("history", "fr_FR", $title, $authorName, $isbn, $publishedDate, $price);
     }
 }

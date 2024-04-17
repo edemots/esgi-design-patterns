@@ -9,6 +9,7 @@ interface BookFactoryInterface
         string $authorName,
         string $isbn,
         string $publishedDate,
+        float $price,
     ): BookInterface;
 
     public function createHistoryBook(
@@ -16,5 +17,6 @@ interface BookFactoryInterface
         string $authorName,
         string $isbn,
         string $publishedDate,
+        float $price,
     ): BookInterface;
 }

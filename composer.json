@@ -6,7 +6,8 @@
             "DesignPatterns\\": "src/",
             "DesignPatterns\\IW1\\": "src/3iw1/app/",
             "DesignPatterns\\IW1EBook\\": "src/3iw1/ebook/",
-            "DesignPatterns\\IW2\\": "src/3iw2/app/"
+            "DesignPatterns\\IW2\\": "src/3iw2/app/",
+            "DesignPatterns\\IW2EBook\\": "src/3iw2/ebook/"
         }
     },
     "authors": [

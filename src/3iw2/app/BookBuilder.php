@@ -12,6 +12,7 @@ class BookBuilder
     protected string $authorName;
     protected string $isbn;
     protected string $publishedAt;
+    protected float $price;
 
     public function fictional(): self
     {
@@ -61,6 +62,12 @@ class BookBuilder
         return $this;
     }
 
+    public function price(float $price): self
+    {
+        $this->price = $price;
+        return $this;
+    }
+
     public function build(): BookInterface
     {
         $factory = match ($this->lang) {
@@ -77,7 +84,8 @@ class BookBuilder
             $this->title,
             $this->authorName,
             $this->isbn,
-            $this->publishedAt
+            $this->publishedAt,
+            $this->price,
         );
 
         return $book;

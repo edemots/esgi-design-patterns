@@ -2,6 +2,7 @@
 
 use DesignPatterns\IW2\BookBuilder;
 use DesignPatterns\IW2\BookFactory;
+use DesignPatterns\IW2\EBookAdapter;
 use DesignPatterns\IW2\EnglishBookFactory;
 use DesignPatterns\IW2\FrenchBookFactory;
 
@@ -14,11 +15,15 @@ require_once "./vendor/autoload.php";
 
 $book = (new BookBuilder())
     ->fictional()
-    ->french()
+    ->british()
     ->title("Le Seigneur des Anneaux")
     ->author("J.R.R Tolkien")
     ->isbn("1234567890")
     ->publishedAt("1998")
+    ->price(14.99)
     ->build();
 
-echo $book->getDetails();
+$adapter = new EBookAdapter($book);
+echo $adapter->getOnlinePrice();
+
+// echo $book->getDetails();
