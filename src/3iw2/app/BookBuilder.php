@@ -13,6 +13,7 @@ class BookBuilder
     protected string $isbn;
     protected string $publishedAt;
     protected float $price;
+    protected int $pegi;
 
     public function fictional(): self
     {
@@ -68,6 +69,36 @@ class BookBuilder
         return $this;
     }
 
+    public function pegi3(): self
+    {
+        $this->pegi = 3;
+        return $this;
+    }
+
+    public function pegi5(): self
+    {
+        $this->pegi = 5;
+        return $this;
+    }
+
+    public function pegi7(): self
+    {
+        $this->pegi = 7;
+        return $this;
+    }
+
+    public function pegi13(): self
+    {
+        $this->pegi = 13;
+        return $this;
+    }
+
+    public function pegi18(): self
+    {
+        $this->pegi = 18;
+        return $this;
+    }
+
     public function build(): BookInterface
     {
         $factory = match ($this->lang) {
@@ -86,6 +117,7 @@ class BookBuilder
             $this->isbn,
             $this->publishedAt,
             $this->price,
+            $this->pegi,
         );
 
         return $book;

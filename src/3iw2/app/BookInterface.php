@@ -2,8 +2,9 @@
 
 namespace DesignPatterns\IW2;
 
-interface BookInterface
+interface BookInterface extends BookComponentInterface
 {
     public function getPrice(): float;
-    public function getDetails(): string;
+    public function getPegi(): int;
+    public function getDetails($depth = 0): string;
 }

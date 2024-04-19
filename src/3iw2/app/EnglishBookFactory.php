@@ -10,8 +10,9 @@ class EnglishBookFactory extends BookFactory
         string $isbn,
         string $publishedDate,
         float $price,
+        int $pegi,
     ): BookInterface {
-        return $this->createBook("fiction", "en_GB", $title, $authorName, $isbn, $publishedDate, $price);
+        return $this->createBook("fiction", "en_GB", $title, $authorName, $isbn, $publishedDate, $price, $pegi);
     }
 
     public function createHistoryBook(
@@ -20,7 +21,8 @@ class EnglishBookFactory extends BookFactory
         string $isbn,
         string $publishedDate,
         float $price,
+        int $pegi,
     ): BookInterface {
-        return $this->createBook("history", "en_GB", $title, $authorName, $isbn, $publishedDate, $price);
+        return $this->createBook("history", "en_GB", $title, $authorName, $isbn, $publishedDate, $price, $pegi);
     }
 }

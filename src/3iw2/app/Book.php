@@ -19,12 +19,13 @@ abstract class Book implements BookInterface
     //     $this->authorName = $authorName;
     // }
     public function __construct(
-        protected string $title,
-        protected string $authorName,
-        protected string $lang,
-        protected string $isbn,
-        protected string $publishedAt,
+        public string $title,
+        public string $authorName,
+        public string $lang,
+        public string $isbn,
+        public string $publishedAt,
         protected float $price,
+        protected int $pegi,
     ) {
     }
 
@@ -33,15 +34,34 @@ abstract class Book implements BookInterface
         return $this->price;
     }
 
-    public function getDetails(): string
+    public function getPegi(): int
     {
+        return $this->pegi;
+    }
+
+    public function getDetails($depth = 0): string
+    {
+        $offset = implode("", array_fill(0, $depth, "\t"));
         $formatter = NumberFormatter::create($this->lang, NumberFormatter::CURRENCY);
 
         return match ($this->lang) {
-            "fr_FR" => "{$this->title} ({$this->isbn})" . PHP_EOL . "écrit par {$this->authorName} en {$this->publishedAt}. A partir de {$formatter->format($this->price)}",
-            "en_GB" => "{$this->title} ({$this->isbn})" . PHP_EOL . "written by {$this->authorName} in {$this->publishedAt}. Starting at {$formatter->format($this->price)}",
+            "fr_FR" => $offset . "• {$this->title} ({$this->isbn})" . PHP_EOL . $offset . "écrit par {$this->authorName} en {$this->publishedAt}. A partir de {$formatter->format($this->price)}",
+            "en_GB" => $offset . "• {$this->title} ({$this->isbn})" . PHP_EOL . $offset . "written by {$this->authorName} in {$this->publishedAt}. Starting at {$formatter->format($this->price)}",
             default => throw new Error("La langue n'est pas prise en charge."),
         }
             . PHP_EOL;
+    }
+
+    public function display($depth = 0): void
+    {
+        echo $this->getDetails($depth);
+    }
+
+    public function searchByTitle(string $title): ?BookComponentInterface
+    {
+        if (strtolower($this->title) === strtolower($title)) {
+            return $this;
+        }
+        return null;
     }
 }
