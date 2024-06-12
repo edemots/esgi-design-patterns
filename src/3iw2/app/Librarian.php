@@ -21,6 +21,16 @@ abstract class Librarian
                 ->price(14.99)
                 ->pegi7()
                 ->build();
+            $legendaires = (new BookBuilder())
+                ->fictional()
+                ->british()
+                ->title("The Legendaries")
+                ->author("Patrick Sobral")
+                ->isbn("2345678765")
+                ->publishedAt("2001")
+                ->price(17.99)
+                ->pegi7()
+                ->build();
 
             $mortSurLeNil = (new BookBuilder())
                 ->fictional()
@@ -40,7 +50,7 @@ abstract class Librarian
             $root->addChild(
                 $fictionCategory
                     ->addChild(
-                        $fictionFantasticCategory->addChild($lotr)
+                        $fictionFantasticCategory->addChild($lotr)->addChild($legendaires)
                     )
                     ->addChild(
                         $fictionThrillerCategory->addChild($mortSurLeNil)

@@ -26,6 +26,7 @@ abstract class Book implements BookInterface
         public string $publishedAt,
         protected float $price,
         protected int $pegi,
+        protected bool $available = true,
     ) {
     }
 
@@ -37,6 +38,21 @@ abstract class Book implements BookInterface
     public function getPegi(): int
     {
         return $this->pegi;
+    }
+
+    public function makeAvailable()
+    {
+        $this->available = true;
+    }
+
+    public function makeUnavailable()
+    {
+        $this->available = false;
+    }
+
+    public function isAvailable(): bool
+    {
+        return $this->available;
     }
 
     public function getDetails($depth = 0): string

@@ -9,6 +9,8 @@ class BookCategory implements BookComponentInterface
      */
     protected $children = [];
 
+    protected ?BookSortingStrategy $sortingStrategy = null;
+
     public function __construct(protected string $title)
     {
     }
@@ -24,7 +26,14 @@ class BookCategory implements BookComponentInterface
         $offset = implode("", array_fill(0, $depth, "\t"));
         echo $offset . $this->title . PHP_EOL;
         $depth++;
+
+        if ($this->sortingStrategy != null) {
+            $this->sortingStrategy->sort($this->children);
+        }
         foreach ($this->children as $child) {
+            if ($child instanceof BookCategory && $this->sortingStrategy != null) {
+                $child->setSortingStrategy($this->sortingStrategy);
+            }
             $child->display($depth);
         }
     }
@@ -38,5 +47,11 @@ class BookCategory implements BookComponentInterface
             }
         }
         return null;
+    }
+
+    public function setSortingStrategy(BookSortingStrategy $sortingStrategy)
+    {
+        $this->sortingStrategy = $sortingStrategy;
+        return $this;
     }
 }
