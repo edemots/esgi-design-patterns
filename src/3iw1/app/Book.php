@@ -13,6 +13,7 @@ abstract class Book implements BookInterface, BookComponent
         public string $publishedAt,
         public float $price,
         public int $pegi,
+        protected bool $available = true,
     ) {
     }
 
@@ -30,7 +31,8 @@ abstract class Book implements BookInterface, BookComponent
                 $tabulations . "written by {$this->author}" . PHP_EOL .
                 $tabulations . "published the {$this->publishedAt}" . PHP_EOL .
                 $tabulations . "for {$this->price} £",
-        };
+        }
+        . PHP_EOL;
     }
 
     public function getPrice(): float
@@ -46,6 +48,21 @@ abstract class Book implements BookInterface, BookComponent
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+    public function makeAvailable(): void
+    {
+        $this->available = true;
+    }
+
+    public function makeUnavailable(): void
+    {
+        $this->available = false;
+    }
+
+    public function isAvailable(): bool
+    {
+        return $this->available;
     }
 
     public function displayHierarchy(int $depth = 0): void

@@ -11,4 +11,10 @@ interface BookInterface
     public function getPegi(): int;
 
     public function getTitle(): string;
+
+    public function makeAvailable(): void;
+
+    public function makeUnavailable(): void;
+
+    public function isAvailable(): bool;
 }

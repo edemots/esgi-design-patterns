@@ -28,7 +28,8 @@ class DiscountedBook implements BookInterface, BookComponent
                 $tabulations . "written by {$this->book->author}" . PHP_EOL .
                 $tabulations . "published the {$this->book->publishedAt}" . PHP_EOL .
                 $tabulations . "for {$this->getPrice()}£ ({$this->book->price}£)",
-        };
+        }
+        . PHP_EOL;
     }
 
     public function getPrice(): float
@@ -49,5 +50,20 @@ class DiscountedBook implements BookInterface, BookComponent
     public function getTitle(): string
     {
         return $this->book->getTitle();
+    }
+
+    public function makeAvailable(): void
+    {
+        $this->book->makeAvailable();
+    }
+
+    public function makeUnavailable(): void
+    {
+        $this->book->makeUnavailable();
+    }
+
+    public function isAvailable(): bool
+    {
+        return $this->book->isAvailable();
     }
 }
